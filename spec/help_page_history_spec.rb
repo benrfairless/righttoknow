@@ -10,13 +10,36 @@ describe HelpPageHistory do
 
     context 'with a custom help page' do
       let(:template) do
-        double(inspect: 'lib/themes/righttoknow/lib/views/' \
-                        'help/house_rules.html.erb')
+        double(identifier: 'lib/themes/righttoknow/lib/views/' \
+                           'help/house_rules.html.erb')
       end
 
       it do
         is_expected.to eq('https://github.com/openaustralia/righttoknow/' \
                           'commits/production/lib/views/help/house_rules.html.erb')
+      end
+    end
+
+    context 'with a different help page' do
+      let(:template) do
+        double(identifier: 'lib/themes/righttoknow/lib/views/help/about.html.erb')
+      end
+
+      it do
+        is_expected.to eq('https://github.com/openaustralia/righttoknow/' \
+                          'commits/production/lib/views/help/about.html.erb')
+      end
+    end
+
+    context 'with a help page in a nested path' do
+      let(:template) do
+        double(identifier: '/var/www/alaveteli/lib/themes/righttoknow/lib/views/' \
+                           'help/privacy.html.erb')
+      end
+
+      it 'uses only the filename' do
+        is_expected.to eq('https://github.com/openaustralia/righttoknow/' \
+                          'commits/production/lib/views/help/privacy.html.erb')
       end
     end
   end
