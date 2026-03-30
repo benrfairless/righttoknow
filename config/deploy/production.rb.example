@@ -1,0 +1,8 @@
+server 'www.example.com', user: 'deploy', roles: %w[app web db]
+
+set :repo_url,    'git@github.com:mysociety/alaveteli.git'
+set :branch,      'master'
+set :deploy_to,   '/srv/www/alaveteli_production'
+set :rails_env,   'production'
+set :daemon_name, 'alaveteli'
+set :rbenv_ruby,  '3.3.6'

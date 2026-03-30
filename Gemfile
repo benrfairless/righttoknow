@@ -3,7 +3,10 @@
 source 'https://rubygems.org'
 
 group :development do
-  gem 'capistrano', '~> 2.15.11'
+  gem 'capistrano',         '~> 3.19', require: false
+  gem 'capistrano-bundler', '~> 2.1',  require: false
+  gem 'capistrano-rails',   '~> 1.6',  require: false
+  gem 'capistrano-rbenv',   '~> 2.2',  require: false
   gem 'guard'
   gem 'guard-livereload'
   gem 'json'

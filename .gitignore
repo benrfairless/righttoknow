@@ -93,5 +93,6 @@ build-iPhoneSimulator/
 
 # End of https://www.toptal.com/developers/gitignore/api/ruby,macos
 
-# Capistrano deployment configuration (contains server-specific settings)
-config/deploy.yml
+# Capistrano stage files (contain server-specific settings)
+config/deploy/production.rb
+config/deploy/staging.rb
