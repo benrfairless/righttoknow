@@ -87,15 +87,15 @@ Rails.configuration.to_prepare do
       raise RangesUnavailable
     end
 
-    # Fetch from uri with short open and read timeout.
-    # Throws Net::OpenTimeout or Net::ReadTimeout, both descend from Timeout::Error
-    # which fetch_ranges already rescues, so a slow Cloudflare reports
-    # ' UNABLE TO CHECK' on the same path as any other failed fetch.
+    # Fetch from uri with short open, read and write timeouts.
+    # Throws Net::OpenTimeout, Net::ReadTimeout or Net::WriteTimeout, all of
+    # which descend from Timeout::Error
     def fetch(uri)
       Net::HTTP.start(uri.host, uri.port,
                       use_ssl: uri.scheme == 'https',
                       open_timeout: FETCH_TIMEOUT,
-                      read_timeout: FETCH_TIMEOUT) do |http|
+                      read_timeout: FETCH_TIMEOUT,
+                      write_timeout: FETCH_TIMEOUT) do |http|
         http.request(Net::HTTP::Get.new(uri))
       end
     end
