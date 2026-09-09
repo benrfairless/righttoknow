@@ -213,8 +213,8 @@ only). Run via `rails runner` from the **host app**, not this repo — see
   behave), ask which behaviour is wanted before writing code — give a terse
   list of options with pros/cons rather than building for every
   interpretation.
-- Check `docs/DECISIONS.md` for past cross-cutting decisions before assuming
-  in an unfamiliar area of the repo; add a new entry there (rather than
+- Check the ADRs in `doc/adr/` for past cross-cutting decisions before assuming
+  in an unfamiliar area of the repo; add a new ADR there (rather than
   repeating it in multiple places) when a decision spans multiple files.
 - When a commit message body covers more than one distinct point, use a
   markdown bullet list rather than one flowing paragraph.
@@ -271,8 +271,7 @@ The five canonical triage roles map to `needs-triage`, `needs-info`,
 
 ### Domain docs
 
-Single-context. This repo already keeps the two records the skills look for
-under different names, so they are pointed at those rather than at a new
-`CONTEXT.md` and `docs/adr/`: "Key domain knowledge" above plus `README.md` for
-vocabulary, and `docs/DECISIONS.md` for cross-cutting decisions. See
+Single-context. The glossary role is played by "Key domain knowledge" above
+plus `README.md` for vocabulary; decision records are ADRs in `doc/adr/`
+(singular `doc/`, since `docs/` is reserved for application material). See
 `.agents/domain.md`.
