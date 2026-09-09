@@ -278,6 +278,10 @@ To contribute an enhancement or a fix to this theme:
 
 The application is deployed using [Capistrano 3](https://capistranorb.com/). Deployment is run from this repository against the [alaveteli](https://github.com/openaustralia/alaveteli) codebase.
 
+Releases to production happen as a staging→production release pull request.
+As part of each release PR, add a section to [`CHANGELOG.md`](CHANGELOG.md)
+covering everything merged to `staging` since the previous release.
+
 ### Prerequisites
 
 Capistrano looks up the EC2 deploy targets dynamically by their `Application` and `Stage` tags
