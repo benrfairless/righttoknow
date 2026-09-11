@@ -1,7 +1,7 @@
 <%# All of the wording for the dormant-account notice (#1095) lives in this  %>
 <%# file and the subject line in lib/dormant_account_mailer.rb, so the copy  %>
 <%# can be revised in one place. Signed off by the CEO before the first live %>
-<%# send - see docs/DECISIONS.md (2026-09-03).                               %>
+<%# send - see doc/adr/0003.                                                 %>
 <%# `raw`, because ActionView escapes interpolated output in a text template %>
 <%# too, which would turn a name like O'Brien into O&#39;Brien.              %>
 <%= _('Hello {{user_name}},', user_name: raw(@user.name)) %>

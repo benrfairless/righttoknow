@@ -19,7 +19,8 @@ Rails.configuration.to_prepare do
   # by definition.
   #
   # Do not run a live send until bounce recording works (#1094). See
-  # "Account housekeeping" in README.md and docs/DECISIONS.md (2026-09-03).
+  # "Account housekeeping" in README.md and
+  # doc/adr/0003-dormant-account-deletion-is-three-ordered-passes.md.
   # rubocop:disable Lint/ConstantDefinitionInBlock
   class DormantAccountMailer < ApplicationMailer
     # rubocop:enable Lint/ConstantDefinitionInBlock
