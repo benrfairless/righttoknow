@@ -278,6 +278,10 @@ To contribute an enhancement or a fix to this theme:
 
 The application is deployed using [Capistrano 3](https://capistranorb.com/). Deployment is run from this repository against the [alaveteli](https://github.com/openaustralia/alaveteli) codebase.
 
+Releases to production happen as a staging→production release pull request.
+As part of each release PR, add a section to [`CHANGELOG.md`](CHANGELOG.md)
+covering everything merged to `staging` since the previous release.
+
 ### Prerequisites
 
 Capistrano looks up the EC2 deploy targets dynamically by their `Application` and `Stage` tags
@@ -357,8 +361,8 @@ bundle exec cap production accounts:destroy_never_confirmed DRYRUN=0
 
 These accounts never confirmed their email address, so they cannot be warned first and are handled
 separately from the dormant-account notice. What "never-confirmed" and "dormant" mean, and why the
-order matters, is in `AGENTS.md` under "Key domain knowledge" and in `docs/DECISIONS.md`
-(2026-09-03).
+order matters, is in `AGENTS.md` under "Key domain knowledge" and in
+[ADR-0003](doc/adr/0003-dormant-account-deletion-is-three-ordered-passes.md).
 
 The same job can be run from a shell on the server, with the same environment variables:
 
